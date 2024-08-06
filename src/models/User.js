@@ -1,7 +1,5 @@
 //!User -> users
 
-
-
 //modelo:User --- orm:sequelize-- -> table:users
 
 const { DataTypes } = require('sequelize');
