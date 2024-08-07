@@ -8,7 +8,7 @@ const getAll = catchError(async (req, res) => {
 });
 
 const create = catchError(async (req, res) => {
-  const result = await User.create(req.body);
+  const result = await User.create(req.body); // el req.body es el objeto que se envia en el body del request
   return res.status(201).json(result);
 });
 
@@ -19,8 +19,17 @@ const getOne = catchError(async (req, res) => {
   return res.json(result);
 });
 
+const destroy = catchError(async (req, res) => {
+  const { id } = req.params;
+  const result = await User.destroy({ where: { id } });
+  if (!result) return res.status(404).json('User not found 😕');
+
+  return res.sendStatus(204);
+});
+
 module.exports = {
   getAll,
   create,
-  getOne
+  getOne,
+  destroy
 }

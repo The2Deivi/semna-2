@@ -1,6 +1,7 @@
 //!User -> users
 
 //modelo:User --- orm:sequelize-- -> table:users
+// el modelo es la representacion de la tabla en la base de datos
 
 const { DataTypes } = require('sequelize');
 const sequelize = require('../utils/connection');
